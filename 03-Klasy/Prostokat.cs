@@ -24,5 +24,30 @@ namespace _03_Klasy
             bokA = bok; bokB = bok;
         }
 
+        public double ObliczPole()
+        {
+            return bokA * bokB;
+        }
+
+        public double ObliczObwod()
+        {
+            return 2 * bokA + 2 * bokB;
+        }
+
+        public bool czyKwadrat()
+        {
+            return bokA == bokB;
+        }
+
+        public String Print()
+        {
+            return String.Format("bokA={0} bokB={1}", bokA, bokB);
+        }
+
+        public override string ToString()
+        {
+            return Print();
+        }
+
     }
 }
