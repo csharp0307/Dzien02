@@ -12,9 +12,41 @@ namespace _01_Struktury
         static void Main(string[] args)
         {
             //ArrayOper();
-            ListOper();
+            //ListOper();
+            HashtableOper();
             Console.ReadKey();
         }
+
+        private static void HashtableOper()
+        {
+            Hashtable tabKrajow = new Hashtable();
+            tabKrajow.Add("PL", "Polska");
+            tabKrajow.Add("UK", "Wlk Brytania");
+            tabKrajow.Add("DE", "Niemcy");
+            tabKrajow.Add("CH", "Szwajcaria");
+            tabKrajow.Add("SE", "Szwecja");
+
+            String klucz = "DE";
+            if (tabKrajow.ContainsKey(klucz))
+            {
+                Console.WriteLine(tabKrajow[klucz]);
+            } else
+            {
+                Console.WriteLine("{0} nie istnieje", klucz);
+            }
+
+            Console.WriteLine(tabKrajow.ContainsValue("Niemcy"));
+
+            tabKrajow.Remove("CH"); // usuwanie
+
+            foreach (var k in tabKrajow.Keys)
+            {
+                Console.WriteLine("{0} = {1}", k, tabKrajow[k]);
+            }
+
+
+        }
+
 
         // operacje na listach
         private static void ListOper()
@@ -29,6 +61,44 @@ namespace _01_Struktury
             listaImion.RemoveAt(0);
             listaImion.Remove(10);
             Console.WriteLine("Liczba el="+listaImion.Count+", pojemnosc="+listaImion.Capacity);
+
+            // deklaracja listy z zadeklarowanym typem danych
+            List<String> listaKrajow = new List<string>(10);
+            listaKrajow.Add("Polska");
+            listaKrajow.Add("Andora");
+            listaKrajow.Add("Niemcy");
+            listaKrajow.Add("Austria");
+            string s = String.Format("Liczba elementów={0}, pojemnosc={1}", 
+                                        listaKrajow.Count, listaKrajow.Capacity );
+            //           0                    1
+            Console.WriteLine(s);
+            listaKrajow.Add("Belgia");
+            listaKrajow.Add("Hiszpania");
+            listaKrajow.Add("Rumunia");
+            listaKrajow.Add("Włochy");
+            listaKrajow.Add("Portugalia");
+            listaKrajow.Add("Szwecja");
+            listaKrajow.Add("Łotwa");
+            listaKrajow.Add("Dania");
+            Console.WriteLine("Liczba elementów={0}, pojemnosc={1}",
+                                        listaKrajow.Count, listaKrajow.Capacity);
+
+
+            listaKrajow[0] = "POLSKA";
+            listaKrajow.Sort();
+            foreach (var item in listaKrajow)
+            {
+                Console.WriteLine(item);
+            }
+
+            listaKrajow.RemoveRange(7, 3);
+            Console.WriteLine("Liczba elementów={0}, pojemnosc={1}",
+                                        listaKrajow.Count, listaKrajow.Capacity);
+            listaKrajow.TrimExcess(); //usuwamy nadmiarowość w zajmowanej pamięci
+            Console.WriteLine("Liczba elementów={0}, pojemnosc={1}",
+                                        listaKrajow.Count, listaKrajow.Capacity);
+
+
         }
 
         // operacje na tablicach
