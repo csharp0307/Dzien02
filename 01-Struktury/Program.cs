@@ -13,8 +13,78 @@ namespace _01_Struktury
         {
             //ArrayOper();
             //ListOper();
-            HashtableOper();
+            //HashtableOper();
+            //SortedListOper();
+            //StackOper();
+            QueueOper();
             Console.ReadKey();
+            
+        }
+
+        private static void QueueOper()
+        {
+            Queue kolejka = new Queue();
+            kolejka.Enqueue("A");
+            kolejka.Enqueue("B");
+            kolejka.Enqueue("C");
+            kolejka.Enqueue("D");
+            foreach (var item in kolejka)
+            {
+                Console.WriteLine(item);
+            }
+
+            string s = "";
+            while (kolejka.Count > 0)
+            {
+                s = (string)kolejka.Dequeue();
+                Console.WriteLine(s);
+            }
+
+
+
+
+
+        }
+
+        private static void StackOper()
+        {
+            // praca ze stosem
+            Stack stos = new Stack();
+            String s = "ABCDEF";
+            foreach (var litera in s)
+                stos.Push(litera);
+
+            //wyswietlenie stosu
+            foreach (var item in stos)
+                Console.WriteLine(item);
+
+            // zdjecie ze stosu
+            char znak = (char)stos.Pop();
+            Console.WriteLine("zdjęto={0}",znak);
+
+            znak = (char)stos.Pop();
+            Console.WriteLine("zdjęto={0}", znak);
+
+            znak = (char)stos.Peek();
+            Console.WriteLine("na szczycie={0}", znak);
+
+            stos.Clear(); //czysci stos
+
+
+
+        }
+
+        private static void SortedListOper()
+        {
+            SortedList listaAut = new SortedList();
+            listaAut.Add("001", "Audi");
+            listaAut.Add("002", "Fiat");
+            listaAut.Add("003", "Opel");
+            listaAut.Add("004", "BMW");
+            foreach (var k in listaAut.Keys)
+            {
+                Console.WriteLine("{0} = {1}", k, listaAut[k]);
+            }
         }
 
         private static void HashtableOper()
